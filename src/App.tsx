@@ -1,17 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Instagram,
-  Mail,
-  ShoppingBag,
-  TimerReset,
-  Twitter,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, ShoppingBag, TimerReset } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import Turnstile from "react-turnstile";
 
 /**
  * Upshutin – Under Construction / Coming Soon
@@ -75,38 +66,38 @@ const App = () => {
   );
   const pct = total > 0 ? (elapsed / total) * 100 : 0;
 
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  // const [email, setEmail] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [success, setSuccess] = useState(false);
+  // const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
-  async function handleNotify() {
-    if (!email || !captchaToken) {
-      alert("Please complete the CAPTCHA before submitting.");
-      return;
-    }
+  // async function handleNotify() {
+  //   if (!email || !captchaToken) {
+  //     alert("Please complete the CAPTCHA before submitting.");
+  //     return;
+  //   }
 
-    setLoading(true);
+  //   setLoading(true);
 
-    try {
-      const res = await fetch("/api/notify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, captchaToken }),
-      });
+  //   try {
+  //     const res = await fetch("/api/notify", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ email, captchaToken }),
+  //     });
 
-      if (res.ok) {
-        alert("Thanks! You’ll be notified when we launch.");
-      } else {
-        alert("Something went wrong. Try again later.");
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-      setSuccess(true);
-    }
-  }
+  //     if (res.ok) {
+  //       alert("Thanks! You’ll be notified when we launch.");
+  //     } else {
+  //       alert("Something went wrong. Try again later.");
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   } finally {
+  //     setLoading(false);
+  //     setSuccess(true);
+  //   }
+  // }
 
   return (
     <div className="bg-black min-h-screen w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black text-slate-100 flex items-center justify-center p-6">
